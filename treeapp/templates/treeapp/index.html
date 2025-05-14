@@ -1,0 +1,15 @@
+{% extends "treeapp/base.html" %}
+{% load draw_menu %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать в TreeMenu App!</h1>
+<p>Это демонстрационное приложение на Django, которое показывает, как работает древовидное меню.</p>
+
+<p>Проверьте:
+    <nav>
+        {% draw_menu 'main_menu' %}
+    </nav>
+</p>
+{% endblock %}

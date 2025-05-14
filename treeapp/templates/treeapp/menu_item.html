@@ -1,0 +1,11 @@
+<li class="{% if item.is_active %}active{% endif %} {% if item.is_open %}open{% endif %}">
+    <a href="{{ item.get_absolute_url }}" style="color: black;">{{ item.title }}</a>
+
+    {% if item.cchildren and item.is_open or item.cchildren and item.is_active %}
+        <ul>
+            {% for child in item.cchildren %}
+                {% include "treeapp/menu_item.html" with item=child current_url=current_url active_ids=active_ids %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>
